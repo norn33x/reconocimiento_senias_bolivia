@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+    }
+    #sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 250px;
+      height: 100%;
+      background: #343a40;
+      color: #fff;
+      padding-top: 60px;
+      z-index: 1000;
+    }
+    #sidebar .nav-link {
+      color: #fff;
+    }
+    #content {
+      margin-left: 250px;
+      padding: 20px;
+    }
+    @media (max-width: 768px) {
+      #sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        padding-top: 15px;
+      }
+      #content {
+        margin-left: 0;
+      }
+    }
+    #video-container {
+      position: relative;
+      width: 100%; /* Ajusta el ancho del contenedor de video */
+      margin: auto;
+      overflow: hidden;
+      padding-top: 56.25%; /* Proporción de aspecto 16:9 (para un contenedor con una relación de aspecto de 16:9) */
+    }
+    #video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%; /* El video ocupa todo el ancho del contenedor */
+      height: 100%; /* El video ocupa todo el alto del contenedor */
+    }
+  </style>
+</head>
+<body>
+  <div id="sidebar">
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <a class="nav-link" href="#"><i class="fas fa-home"></i> Inicio</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"><i class="fas fa-users"></i> Usuarios</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"><i class="fas fa-cog"></i> Configuración</a>
+      </li>
+    </ul>
+  </div>
+  <div id="content">
+    <h1>Gesture Recognition in Real Time</h1>
+    <h1>Welcome, {{ name }}</h1>
+    <a href="{{ url_for('logout') }}">Logout</a>
+    <div id="video-container">
+      <img id="video" src="{{ url_for('video_feed') }}" width="100%">
+    </div>
+  </div>
+</body>
+</html>
